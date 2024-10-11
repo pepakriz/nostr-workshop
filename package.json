@@ -1,0 +1,23 @@
+{
+  "name": "pepakriz/cc24-nostr-workshop",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "mathjs": "^13.2.0",
+    "next": "^14.2.15",
+    "nostr-hooks": "^2.9.11",
+    "nostr-tools": "2.7.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-qr-code": "^2.0.15"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "reveal.js": "^5.1.0",
+    "typescript": "^5.6.3"
+  }
+}
