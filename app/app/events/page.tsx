@@ -11,9 +11,9 @@ export default function Page() {
         const pool = new SimplePool();
         pool.subscribeMany(relays, [
             {
-                // kinds: [1],
-                authors: [publicKey],
-                limit: 5,
+                // kinds: [3],
+                '#p': [publicKey],
+                limit: 0,
             }
         ], {
             onevent(event) {
