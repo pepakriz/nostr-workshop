@@ -75,7 +75,7 @@ export default function Page() {
 
     return (
         <>
-            <h2>Send DM '/command 5*6'</h2>
+            <h2>Send DM '/calculate 5*6'</h2>
 
             <ul>
                 {rows.map((row, i) => (

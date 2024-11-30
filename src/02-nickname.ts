@@ -13,8 +13,8 @@ const eventTemplate: EventTemplate = {
 
     ],
     content: JSON.stringify({
-        name: 'CC Workshop',
-        about: "Existuji jen kvůli workshopu na ChainCampu2024"
+        name: 'Posobota',
+        about: "Existuji jen kvůli prezentaci na poslední Posobotě"
     }),
     /// sig: 'nevíme',
 } satisfies EventTemplate;

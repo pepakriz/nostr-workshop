@@ -126,32 +126,6 @@ export default function Page() {
                         />
                     </section>
                     <section>
-                        <h3>Využití klíčů</h3>
-
-                        <ul>
-                            <li>Podepisování dat jako důkaz autorství</li>
-                            <li>Zasílání šifrovaných dat konkrétnímu příjemci</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Podepisování</h3>
-
-                        <img
-                            src={'/static/signature.png'}
-                            width="600px"
-                            height="auto"
-                        />
-                    </section>
-                    <section>
-                        <h3>Šifrování</h3>
-
-                        <img
-                            src={'/static/encryption.png'}
-                            width="400px"
-                            height="auto"
-                        />
-                    </section>
-                    <section>
                         <h3>Event</h3>
 
                         <img
@@ -181,6 +155,15 @@ export default function Page() {
                             link={'https://github.com/nostr-protocol/nips/blob/master/01.md#events-and-signatures'}/>
                     </section>
                     <section>
+                        <h3>Podepisování</h3>
+
+                        <img
+                            src={'/static/signature.png'}
+                            width="600px"
+                            height="auto"
+                        />
+                    </section>
+                    <section>
                         <h3>Sekce 'tags'</h3>
 
                         <img
@@ -207,48 +190,55 @@ export default function Page() {
                         <MoreInfoLink link={'https://github.com/nostr-protocol/nips/blob/master/01.md#tags'}/>
                     </section>
                     <section>
+                        <h3>Komunikace mezi klientem a relay</h3>
+
+                        <img
+                            src={'/static/websocket-icon.png'}
+                            width="100px"
+                            height="auto"
+                        />
+
+                        <h3>Client -> relay</h3>
+                        <pre>
+                            <code data-trim={''} data-noescape={''} data-line-numbers={''}>
+{`
+["EVENT", <event JSON as defined above>], used to publish events.
+["REQ", <subscription_id>, <filters1>, <filters2>, ...], used to request events and subscribe to new updates.
+["CLOSE", <subscription_id>], used to stop previous subscriptions.
+`}
+                            </code>
+                        </pre>
+
+                        <h3>Relay -> client</h3>
+                        <pre>
+                            <code data-trim={''} data-noescape={''} data-line-numbers={''}>
+{`
+["EVENT", <subscription_id>, <event JSON as defined above>], used to send events requested by clients.
+["OK", <event_id>, <true|false>, <message>], used to indicate acceptance or denial of an EVENT message.
+["EOSE", <subscription_id>], used to indicate the end of stored events and the beginning of events newly received in real-time.
+["CLOSED", <subscription_id>, <message>], used to indicate that a subscription was ended on the server side.
+["NOTICE", <message>], used to send human-readable error messages or other things to clients.
+`}
+                            </code>
+                        </pre>
+
+                        <MoreInfoLink
+                            link={'https://github.com/nostr-protocol/nips/blob/master/01.md#communication-between-clients-and-relays'}/>
+                    </section>
+                    <section>
+                        <img
+                            src={'/static/websocket.png'}
+                            height="auto"
+                        />
+
+                    </section>
+                    <section>
                         <h3>NIPs</h3>
 
                         <blockquote>
                             Nostr Implementation Possibilities<br/>
                             <a href={'https://github.com/nostr-protocol/nips'}>https://github.com/nostr-protocol/nips</a>
                         </blockquote>
-                    </section>
-                    <section>
-                        <h3>Komunikace s relay</h3>
-
-                        <ul>
-                            <li>
-                                <code>{'["EVENT", <event JSON as defined above>]'}</code>
-                            </li>
-                            <li>
-                                <code>{'["REQ", <subscription_id>, <filters1>, <filters2>, ...]'}</code>
-                            </li>
-                            <li>
-                                <code>{'["CLOSE", <subscription_id>]'}</code>
-                            </li>
-                        </ul>
-
-                        <MoreInfoLink
-                            link={'https://github.com/nostr-protocol/nips/blob/master/01.md#from-client-to-relay-sending-events-and-creating-subscriptions'}/>
-                    </section>
-                    <section>
-                        <h3>Odpovědi od relay</h3>
-
-                        <ul>
-                            <li>
-                                <code>{'["EVENT", <subscription_id>, <event JSON as defined above>]'}</code>
-                            </li>
-                            <li>
-                                <code>{'["OK", <event_id>, <true|false>, <message>]'}</code>
-                            </li>
-                            <li>
-                                ...
-                            </li>
-                        </ul>
-
-                        <MoreInfoLink
-                            link={'https://github.com/nostr-protocol/nips/blob/master/01.md#from-relay-to-client-sending-events-and-notices'}/>
                     </section>
                 </section>
 
@@ -260,7 +250,7 @@ export default function Page() {
                         <h3>NIP-01: user metadata & posts</h3>
                     </section>
                     <section>
-                        <h3>NIP-02: follow list</h3>
+                    <h3>NIP-02: follow list</h3>
                     </section>
                     <section>
                         <h3>NIP-04: Encrypted Direct Message (@deprecated)</h3>
